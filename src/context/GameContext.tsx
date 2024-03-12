@@ -83,7 +83,10 @@ const GameState = (props: ContainerProps) => {
       setWinner(isWinner.winner);
       setWinnerLine(isWinner.line);
       const nties = { ...ties };
-      nties[isWinner.winner] += 1;
+      // nties[isWinner.winner] += 1;
+      nties[isWinner.winner as keyof typeof nties] += 1;
+      console.log(nties);
+
       setTies(nties);
       showModal();
       setModalMode("winner");
